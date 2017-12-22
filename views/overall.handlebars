@@ -1,0 +1,36 @@
+<div class="card">
+	<h2>Оплата успешно произведена</h2>
+	<div class="customer-info">
+		<h3>Информация о покупателе:</h3>
+		<ul>
+			<li>Имя: {{passenger.lastName}} {{passenger.firstName}}</li>
+			<li>Номер паспорта: {{passenger.passportNumber}}</li>
+			<li>Срок действия паспорта: {{passenger.validUntil}}</li>
+			<li>E-mail: {{passenger.email}}</li>
+			<li>Номер телефона: {{passenger.phone}}</li>
+		</ul>
+	</div>
+	<div class="trip-info">
+		<h3>Информация о покупке</h3>
+		<ul>
+			<li>{{trip.from}} - {{trip.to}}</li>
+			<li>Дата и время отправления: {{trip.outcomeDate}}</li>
+			<li>Дата и время прибытия: {{trip.arrivalDate}}</li>
+			<li>Длительность поездки: {{trip.duration}}</li>
+			{{#if trip.isTwoWay}}
+			<li>Дата и время отправления обратно: {{trip.returningOutcomeDate}}</li>
+			<li>Дата и время прибытия обратно: {{trip.returningArrivalDate}}</li>
+			<li>Длительность поездки обратно: {{trip.returningDuration}}</li>
+			{{/if}}
+			<li>
+				<h4>Места:</h4>
+				<ul>
+					{{#each passenger.places}}
+					<li>Вагон {{wagon}}, место {{place}}</li>
+					{{/each}}
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<a href="/download-ticket?passenger={{passenger._id}}"><input type="button" class="blue-button" value="Сохранить в PDF"></a>
+</div>

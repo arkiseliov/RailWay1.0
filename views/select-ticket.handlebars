@@ -1,0 +1,73 @@
+<link rel="stylesheet" type="text/css" href="/css/select-ticket.css">
+<div class="card">
+	<a href="" class="back-ref">Назад</a>
+	{{#if trips}}
+		<table id="tickets">
+		{{#if isTwoWay}}
+			<thead>
+				<tr>
+					<td>Станция отправления</td>
+					<td>Станция прибытия</td>
+					<td>Дата и время отправления</td>
+					<td>Дата и время прибытия</td>
+					<td>Время в пути</td>
+					<td>Дата и время отправления обратно</td>
+					<td>Дата и время прибытия обратно</td>
+					<td>Время в пути обратно</td>
+					{{#each allWagonTypes}}
+					<td>{{this}}/Стоимость</td>
+					{{/each}}
+				</tr>
+			</thead>
+			<tbody>
+				{{#each trips}}
+				<tr data-id="{{id}}">
+					<td>{{from}}</td>
+					<td>{{to}}</td>
+					<td>{{outcomeDate}}</td>
+					<td>{{arrivalDate}}</td>
+					<td>{{duration}}</td>
+					<td>{{returningOutcomeDate}}</td>
+					<td>{{returningArrivalDate}}</td>
+					<td>{{returningDuration}}</td>
+					{{{wagonTypes}}}
+				</tr>
+				{{/each}}
+			</tbody>
+		{{else}}
+			<thead>
+				<tr>
+					<td>Станция отправления</td>
+					<td>Станция прибытия</td>
+					<td>Дата и время отправления</td>
+					<td>Дата и время прибытия</td>
+					<td>Время в пути</td>
+					{{#each allWagonTypes}}
+					<td>{{this}}/Стоимость</td>
+					{{/each}}
+				</tr>
+			</thead>
+			<tbody>
+				{{#each trips}}
+				<tr data-id="{{id}}">
+					<td>{{from}}</td>
+					<td>{{to}}</td>
+					<td>{{outcomeDate}}</td>
+					<td>{{arrivalDate}}</td>
+					<td>{{duration}}</td>
+					{{{wagonTypes}}}
+				</tr>
+				{{/each}}
+			</tbody>
+		{{/if}}
+		</table>
+	{{else}}
+		<h3>Поиск по запросу не дал результатов</h3>
+	{{/if}}
+	<form action="/credentials/" method="post">
+		<input type="text" name="id" class="hidden" readonly id="id">
+		<input type="submit" id="next" value="Далее" disabled>
+	</form>
+	
+</div>
+<script type="text/javascript" src="/js/select-ticket.js"></script>

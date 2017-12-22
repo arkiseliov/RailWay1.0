@@ -1,0 +1,30 @@
+<link rel="stylesheet" type="text/css" href="/css/select-place.css">
+<div class="card">
+	<a href="" class="back-ref">Назад</a>
+	<ul>
+		{{#each wagons}}
+		<li class="wagon" data-number="{{number}}">
+			<h3>№{{number}} {{type}}</h3>
+			<table>
+				<tr>
+					{{#each places}}
+					<td class="{{#unless isAvailable}}sold{{/unless}}">{{number}}</td>
+					{{/each}}
+				</tr>
+			</table>
+		</li>
+		{{/each}}
+	</ul>
+	<form action="/card-credential/" method="post" class="credentials-form">
+		<input type="text" name="places" id="places" class="hidden" value="[]" readonly>
+		<input type="text" name="lastName" class="hidden" value="{{credentials.lastName}}" readonly>
+		<input type="text" name="firstName" class="hidden" value="{{credentials.firstName}}" readonly>
+		<input type="text" name="passport" class="hidden" value="{{credentials.passport}}" readonly>
+		<input type="text" name="validityPeriod" class="hidden" value="{{credentials.validityPeriod}}" readonly>
+		<input type="text" name="email" class="hidden" value="{{credentials.email}}" readonly>
+		<input type="text" name="tel" class="hidden" value="{{credentials.tel}}" readonly>
+		<input type="text" name="tripId" class="hidden" value="{{credentials.tripId}}" readonly>
+		<input type="submit" value="Далее" id="next" disabled>
+	</form>
+</div>
+<script type="text/javascript" src="/js/select-place.js"></script>

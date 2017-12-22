@@ -1,0 +1,59 @@
+<div class="card">
+	<a href="" class="back-ref">Назад</a>
+	{{#if trips}}
+		<table>
+		{{#if isTwoWay}}
+			<thead>
+				<tr>
+					<td>Станция отправления</td>
+					<td>Станция прибытия</td>
+					<td>Дата и время отправления</td>
+					<td>Дата и время прибытия</td>
+					<td>Время в пути</td>
+					<td>Дата и время отправления обратно</td>
+					<td>Дата и время прибытия обратно</td>
+					<td>Время в пути обратно</td>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each trips}}
+				<tr data-id="{{id}}">
+					<td>{{from}}</td>
+					<td>{{to}}</td>
+					<td>{{outcomeDate}}</td>
+					<td>{{arrivalDate}}</td>
+					<td>{{duration}}</td>
+					<td>{{returningOutcomeDate}}</td>
+					<td>{{returningArrivalDate}}</td>
+					<td>{{returningDuration}}</td>
+				</tr>
+				{{/each}}
+			</tbody>
+		{{else}}
+			<thead>
+				<tr>
+					<td>Станция отправления</td>
+					<td>Станция прибытия</td>
+					<td>Дата и время отправления</td>
+					<td>Дата и время прибытия</td>
+					<td>Время в пути</td>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each trips}}
+				<tr data-id="{{id}}">
+					<td>{{from}}</td>
+					<td>{{to}}</td>
+					<td>{{outcomeDate}}</td>
+					<td>{{arrivalDate}}</td>
+					<td>{{duration}}</td>
+				</tr>
+				{{/each}}
+			</tbody>
+		{{/if}}
+		</table>
+	{{else}}
+		<h3>Поиск по запросу не дал результатов</h3>
+	{{/if}}
+	
+</div>

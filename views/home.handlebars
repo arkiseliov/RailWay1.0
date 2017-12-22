@@ -1,0 +1,41 @@
+<link rel="stylesheet" type="text/css" href="/css/home.css">
+<div class="card from-to-card">
+	<form id="from-to">
+		<h2>Введите данные для поиска билетов</h2>
+		<div class="direction">
+			<input type="text" name="from" id="from" list="stations" placeholder="Станция отправления" required>
+			<button type="button" id="reverse-stations"><i class="fas fa-exchange-alt"></i></button>
+			<input type="text" name="to" id="to" list="stations" placeholder="Станция прибытия" required>
+		</div>
+		<div class="radios">
+			<label>
+				<input type="radio" name="mode" value="oneWay" checked>
+				<span>Туда</span>
+			</label>
+			<label>
+				<input type="radio" name="mode" value="twoWay">
+				<span>Туда/обратно</span>
+			</label>
+		</div>
+		<div class="dates">
+			<label>
+				<span>Дата отправления</span>
+				<input type="date" name="outcomeDate" required min="{{minDate}}">
+			</label>
+			<label class="hidden">
+				<span>Дата обратного отправления</span>
+				<input type="date" name="returningDate" min="{{minDate}}">
+			</label>
+		</div>
+		<div class="buttons">
+			<input type="button" class="blue-button" value="Купить билеты" id="buy">
+			<input type="button" class="blue-button" value="Расписание поездов" id="timetable">
+		</div>
+	</form>
+</div>
+<datalist id="stations">
+	{{#each stations}}
+		<option value="{{name}}">
+	{{/each}}
+</datalist>
+<script type="text/javascript" src="/js/home.js"></script>
