@@ -153,8 +153,8 @@ Trip.find(function(err, trips){
 			new Trip({
 				from: stations[1]._id,
 				to: stations[0]._id,
-				outcomeDate: new Date('2017-12-23 00:01:00'),
-				arrivalDate: new Date('2017-12-23 02:00:00'),
+				outcomeDate: new Date('2017-12-14 14:20:00'),
+				arrivalDate: new Date('2017-12-19 19:50:00'),
 				wagonTypes: [{name: 'Общий', price: 5}],
 				wagons: [{
 					number: 1,
