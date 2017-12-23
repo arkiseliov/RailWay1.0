@@ -10,12 +10,12 @@ Station.find(function(err, stations){
 	if (err) return console.error('Database error');
 	if (!stations.length){
 		new Station({
-			name: 'Минск-Пассажирский'
+			name: 'Брест - Санкт-Петербург'
 		}).save(function(err){
 			if (err) console.error('Error saving the object to DB');
 		});
 		new Station({
-			name: 'Барановичи-Полесские'
+			name: 'Минск - Москва'
 		}).save(function(err){
 			if (err) console.error('Error saving the object to DB');
 		});
